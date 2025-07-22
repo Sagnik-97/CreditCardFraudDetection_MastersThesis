@@ -6,8 +6,7 @@ This notebook presents the implementation and analysis for my Master’s thesis,
 The dataset used for this study is an open-source dataset available on Kaggle, containing synthetically generated credit card transactions labeled as fraudulent or legitimate.
 
 📂 Dataset
-Source: Kaggle – Synthetic Financial Dataset For Fraud Detection
-
+Source: [Kaggle – Synthetic Financial Dataset For Fraud Detection](https://www.kaggle.com/datasets/kartik2112/fraud-detection/data)
 Files Used: fraudTrain.csv and fraudTest.csv
 
 Observations: Contains transaction features such as category, amount, time, location, age, and gender along with a fraud label.
@@ -32,34 +31,19 @@ The dataset shows class imbalance with far fewer fraud cases than legitimate tra
 Time and age features may provide meaningful signals when combined with transaction metadata like category or merchant.
 
 ⚙️ Implementation
+
 Preprocessing:
 Dropped personally identifiable information (PII) like cc_num, names, address, and unix_time.
-
 Categorical encoding: Converted categorical columns (e.g., merchant, category, gender) to string types and handled missing values.
-
 Class balancing: Used SMOTE (Synthetic Minority Oversampling Technique) to handle class imbalance in the training data.
-
 Feature scaling: Applied StandardScaler to normalize numerical features like transaction amount.
-
 Feature Engineering:
-Added columns:
-
-age
-
-hour, day, weekday
+Added columns:age, hour, day, weekday
 
 Binned age into groups using custom intervals for age_group and age_bin_5.
 
 Models Used:
-Logistic Regression
-
-Random Forest Classifier
-
-Decision Tree Classifier
-
-Support Vector Classifier (SVC)
-
-XGBoost Classifier
+Logistic Regression, Random Forest Classifier, XGBoost Classifier
 
 Each model was trained on the processed training set and evaluated using:
 
