@@ -51,27 +51,29 @@ Evaluation focused on Recall and F1-score due to the importance of detecting min
 ⚙️ **Implementation Overview**
 The implementation focused on building and comparing machine learning models for fraud detection using a highly imbalanced dataset from Kaggle.
 
-**1. Data Preprocessing**
-Loaded the dataset and checked for null or missing values.
+1. Data Preprocessing
+   Loaded the dataset and checked for null or missing values.
 
-Scaled the features using standard normalization to bring all variables to the same range.
+  Scaled the features using standard normalization to bring all variables to the same range.
+
+  Applied label encoding to convert categorical variables into a numerical format suitable for machine learning models.
 
 2. Handling Imbalanced Data
-Since fraud cases were rare, applied SMOTE to synthetically oversample the minority (fraud) class in the training set.
+  Since fraud cases were rare, applied SMOTE to synthetically oversample the minority (fraud) class in the training set.
 
 3. Model Building
-Started with a baseline Logistic Regression model to establish a reference point.
+  Started with a baseline Logistic Regression model to establish a reference point.
 
-Built a Random Forest model and used RandomizedSearchCV to tune hyperparameters.
+  Built a Random Forest model and used RandomizedSearchCV to tune hyperparameters.
 
-Developed an XGBoost classifier and fine-tuned it similarly using randomized search.
+  Developed an XGBoost classifier and fine-tuned it similarly using randomized search.
 
 4. Model Evaluation
-Used cross-validation to test model robustness and reduce the risk of overfitting.
+  Used cross-validation to test model robustness and reduce the risk of overfitting.
 
-Evaluated performance using classification metrics to compare model effectiveness.
+  Evaluated performance using classification metrics to compare model effectiveness.
 
 5. Objective
-The goal was to identify which model can most reliably detect fraudulent transactions after addressing data imbalance and optimizing model settings.
+  The goal was to identify which model can most reliably detect fraudulent transactions after addressing data imbalance and optimizing model settings.
 
 
