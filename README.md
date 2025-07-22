@@ -15,7 +15,7 @@ Observations: Contains transaction features such as category, amount, time, loca
 📊 Exploratory Data Analysis (EDA)
 The EDA focused on understanding the dataset structure and preparing the data for model building:
 
-Key Steps:
+**Key Steps:**
 Datetime parsing: Converted trans_date_trans_time and dob to datetime objects.
 
 Age feature creation: Derived the customer's age at the time of transaction.
@@ -26,19 +26,12 @@ Age binning: Created two categorical age bins (age_group and age_bin_5) to captu
 
 Missing value handling: Filled NA values in categorical fields with 'missing'.
 
-Observations:
-The dataset shows class imbalance with far fewer fraud cases than legitimate transactions.
 
-Time and age features may provide meaningful signals when combined with transaction metadata like category or merchant.
+⚙️**Preprocessing:**
 
-⚙️ Implementation
-
-Preprocessing:
 Dropped personally identifiable information (PII) like cc_num, names, address, and unix_time.
 
 Categorical encoding: Converted categorical columns (e.g., merchant, category, gender) to string types and handled missing values.
-
-Class balancing: Used SMOTE (Synthetic Minority Oversampling Technique) to handle class imbalance in the training data.
 
 Feature scaling: Applied StandardScaler to normalize numerical features like transaction amount.
 
@@ -50,20 +43,35 @@ Binned age into groups using custom intervals for age_group and age_bin_5.
 Models Used:
 Logistic Regression, Random Forest Classifier, XGBoost Classifier
 
-Each model was trained on the processed training set and evaluated using:
-
-Accuracy
-
-Precision
-
-Recall
-
-F1-score
-
-ROC-AUC Score
-
-Confusion Matrix
-
-Cross-validation using StratifiedKFold
+Each model was trained on the processed training set and evaluated using: Accuracy, Precision, Recall, F1-score, ROC-AUC Score, Confusion Matrix
 
 Evaluation focused on Recall and F1-score due to the importance of detecting minority fraud cases.
+
+
+⚙️ **Implementation Overview**
+The implementation focused on building and comparing machine learning models for fraud detection using a highly imbalanced dataset from Kaggle.
+
+**1. Data Preprocessing**
+Loaded the dataset and checked for null or missing values.
+
+Scaled the features using standard normalization to bring all variables to the same range.
+
+2. Handling Imbalanced Data
+Since fraud cases were rare, applied SMOTE to synthetically oversample the minority (fraud) class in the training set.
+
+3. Model Building
+Started with a baseline Logistic Regression model to establish a reference point.
+
+Built a Random Forest model and used RandomizedSearchCV to tune hyperparameters.
+
+Developed an XGBoost classifier and fine-tuned it similarly using randomized search.
+
+4. Model Evaluation
+Used cross-validation to test model robustness and reduce the risk of overfitting.
+
+Evaluated performance using classification metrics to compare model effectiveness.
+
+5. Objective
+The goal was to identify which model can most reliably detect fraudulent transactions after addressing data imbalance and optimizing model settings.
+
+
