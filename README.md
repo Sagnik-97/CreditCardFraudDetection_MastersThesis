@@ -7,6 +7,7 @@ The dataset used for this study is an open-source dataset available on Kaggle, c
 
 📂 Dataset
 Source: [Kaggle – Synthetic Financial Dataset For Fraud Detection](https://www.kaggle.com/datasets/kartik2112/fraud-detection/data)
+
 Files Used: fraudTrain.csv and fraudTest.csv
 
 Observations: Contains transaction features such as category, amount, time, location, age, and gender along with a fraud label.
