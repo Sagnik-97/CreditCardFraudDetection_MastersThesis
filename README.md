@@ -35,9 +35,13 @@ Time and age features may provide meaningful signals when combined with transact
 
 Preprocessing:
 Dropped personally identifiable information (PII) like cc_num, names, address, and unix_time.
+
 Categorical encoding: Converted categorical columns (e.g., merchant, category, gender) to string types and handled missing values.
+
 Class balancing: Used SMOTE (Synthetic Minority Oversampling Technique) to handle class imbalance in the training data.
+
 Feature scaling: Applied StandardScaler to normalize numerical features like transaction amount.
+
 Feature Engineering:
 Added columns:age, hour, day, weekday
 
